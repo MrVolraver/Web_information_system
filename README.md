@@ -39,3 +39,4 @@
 • SQL
 • SQL Workbench
 • HTML/CSS
+• Redis

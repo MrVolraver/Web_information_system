@@ -1,0 +1,68 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+{% endblock %}
+
+{% block main %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+{% if user_config['u_role'] == 'user' %}
+<div class="profile_container">
+    <a href="" class="profile_item">
+        Редактировать профиль
+    </a>
+    <a href="/profile/my_routes/" class="profile_item">
+        Мои поездки
+    </a>
+    <a href="" class="profile_item">
+        Карты
+    </a>
+    <a href="/profile/history_routes/" class="profile_item">
+        История заказов
+    </a>
+    <a href="" class="profile_item">
+        Подключенные услуги
+    </a>
+</div>
+
+{% elif user_config['u_role'] == 'driver'%}
+<div class="profile_container">
+    <a href="/profile/timesheet" class="profile_item">
+        Моё расписание
+    </a>
+</div>
+
+{% elif user_config['u_role'] == 'director'%}
+<div class="profile_container">
+    <a href="/report/read_report/" class="profile_item">
+        Посмотреть отчеты
+    </a>
+    <a href="/profile/my_drivers" class="profile_item">
+        Водители троллейбусного парка
+    </a>
+</div>
+
+{% elif user_config['u_role'] == 'dispatcher'%}
+<div class="profile_container">
+    <a href="/profile/add_timesheet" class="profile_item">
+        Добавить в расписание
+    </a>
+    <a href="/report/create_report/" class="profile_item">
+        Создать отчет
+    </a>
+    <a href="/report/read_report/" class="profile_item">
+        Посмотреть отчеты
+    </a>
+</div>
+{% endif %}
+
+{% endblock %}

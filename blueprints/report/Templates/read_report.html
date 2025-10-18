@@ -1,0 +1,55 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css">
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+<link type="text/css" rel="stylesheet" href="/static/report_css/report.css">
+{% endblock %}
+
+{% block main %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+
+<div class="textt">Отчеты по водителям:</div>
+
+<div class="report_container_con">
+    {% for item in items['report_driver'] %}
+        <div class="item_report">
+            Отчет за {{item['Years']}}.{{item['Months']}} по водителю {{item['D_name']}}:
+            <br>Количество отработанных часов: {{item['Hourse_quanity']}}</br>
+            Персональный ID водителя: {{item['D_ID']}}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="textt">Отчеты по поездкам:</div>
+
+<div class="report_container_con">
+    {% for item in items['report_date'] %}
+        <div class="item_report">
+            Отчет c {{item['Entry_date']}} по {{item['Exit_date']}}:
+            {% if item['driver_col'] %}
+            <br>Количество водителей, вышедших на маршруты: {{item['driver_col']}}</br>
+            {% endif %}
+            {% if item['bought_bilet_col'] %}
+            Количество купленных билетов: {{item['bought_bilet_col']}}
+            {% endif %}
+            {% if item['total_sum'] %}
+            <br>Общаяя выручка: {{item['total_sum']}} р.</br>
+            {% endif %}
+            {% if item['total_people'] %}
+            Общее количество пассажиров: {{item['total_people']}}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

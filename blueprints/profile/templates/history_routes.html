@@ -1,0 +1,44 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+<link type="text/css" rel="stylesheet" href="/static/report_css/report.css">
+{% endblock %}
+
+{% block main %}
+
+<form method="get" action="" class="filtr">
+    <div>
+        Дата заказа:
+        <input type="date" name="DATE(data_order)">
+    </div>
+    <input type="text" placeholder="Общаа сумма заказа" name="total_sum">
+    <input type="text" placeholder="Маршрут" name="R_name">
+    <button type="submit">Применить фильтр</button>
+</form>
+
+<div class="history">
+    {% for item in items[0] %}
+    <div class="history_details">
+        Дата заказа: {{ item['data_order'] }}
+        <br>Общая сумма заказа: {{ item['total_sum'] }} р.<br>
+        <div class="order_details">
+            Детали заказа:
+            {% for details in items[1] %}
+            <div class="order_details_item">
+                {% if details['id_order'] == item['idorders'] %}
+
+                Количество билетов на маршрут "{{ details['R_name'] }}": {{ details['count'] }}
+                Цена билета: {{ details['price'] }} р.
+                Дата поездки: {{ details['T_date'] }}
+
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

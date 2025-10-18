@@ -1,0 +1,54 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/trolleybus_css/trolleybus.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+<div class="timesheet_search">
+    <form action="" method="get">
+        <input type="text" placeholder="Маршрут" name="R_name">
+        <input type="text" placeholder="Номер троллейбуса" name="trollleybus_num">
+        <input type="text" placeholder="Количество остановок" name="Stops_quanity">
+        <input type="date" placeholder="Дата маршрута" name="DATE(T_date)">
+        <input type="text" placeholder="Время выезда" name="TIME(Entry_date)">
+        <input type="text" placeholder="Время приезда" name="TIME(Exit_date)">
+        <button type="submit">Применить фильтр</button>
+    </form>
+</div>
+
+{% for item in items %}
+<div class="ticket">
+    <div class="ticket_item">
+        <div class="item">Маршрут: {{item['R_name']}}</div>
+        <div class="item">Номер троллейбуса: {{item['trollleybus_num']}}</div>
+        <div class="item">Количество останвок: {{item['Stops_quanity']}}</div>
+        <div class="item">Дата: {{item['DATE(T_date)']}}</div>
+        <div class="item">Время выезда: {{item['TIME(Entry_date)']}}</div>
+        <div class="item">Время приезда: {{item['TIME(Exit_date)']}}</div>
+        <div class="item">Цена: {{item['price']}} рублей</div>
+        <div class="item">Осталось билетов: {{item['remain_count_ticket']}}</div> 
+    </div>
+    {% if user_config['u_role'] == 'user' %}
+    <form method="post" action="">
+        <input type="number" name="count" placeholder="Количество билетов">
+        <input type="hidden" name="T_ID" value="{{ item['T_ID'] }}">
+        <button>Добавить</button>
+    </form>
+    {% endif %}
+</div>
+{% endfor %}
+
+{% endblock %}

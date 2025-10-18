@@ -1,0 +1,12 @@
+{% extends 'default.html' %}
+
+{% block head %}
+    <title>Ошибка</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css">
+{% endblock %}
+
+{% block main %}
+<div style="text-align:center; font-size: 50px; width: 900px; margin-left: 20vw;" class="err_mes">
+    <p>{{ message }}</p>
+</div>
+{% endblock %}

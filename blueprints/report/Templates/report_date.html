@@ -1,0 +1,56 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css">
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+<link type="text/css" rel="stylesheet" href="/static/report_css/report.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+<form method="post" action="">
+    <div class="report_container">
+        <div class="textdate">С какой даты:</div>
+        <input type="date" name="Entry_date" placeholder="С какой даты">
+        <div class="textdate">По какую дату:</div>
+        <input type="date" name="Exit_date" placeholder="По какую дату">
+        <div class="checkbox_container">
+            <div class="checkbox_text">Показать количество водителей, вышедших на маршруты</div>
+            <input type="checkbox" name="col_drivers">
+        </div>
+        <div class="checkbox_container">
+            <div class="checkbox_text">Показать количество купленных билетов</div>
+            <input type="checkbox" name="col_bilet">
+        </div>
+        <div class="checkbox_container">
+            <div class="checkbox_text">Показать общую выручку</div>
+            <input type="checkbox" name="total_sum">
+        </div>
+        <div class="checkbox_container">
+            <div class="checkbox_text">Показать общее количество пассажиров</div>
+            <input type="checkbox" name="total_people">
+        </div>
+        <button type="submit"> Создать отчет! </button>
+    </div>
+</form>
+
+{% endblock %}

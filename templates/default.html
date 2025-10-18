@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/static/header.css">
+    <link type="text/css" rel="stylesheet" href="/static/footer.css">
+    <link type="text/css" rel="stylesheet" href="/static/main.css">
+    {% block head %} {% endblock %}
+</head>
+
+{% import 'footer.html' as footer %}
+{% import 'header.html' as header %}
+
+<body>
+    {{ header.header(user_config=user_config) }}
+    <main>
+    {% block main %} {% endblock %}
+    </main>
+    {{ footer.footer() }}
+</body>
+</html>

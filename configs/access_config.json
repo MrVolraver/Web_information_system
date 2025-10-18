@@ -1,0 +1,28 @@
+{
+  "user": [
+            "auth",
+            "basket",
+            "profile", "!my_timesheet", "!add_timesheet", "!my_drivers",
+            "trol"
+          ],
+
+  "driver": [
+              "auth",
+              "profile", "my_timesheet", "!add_timesheet", "!my_routes", "!my_drivers", "!history_routes",
+              "trol"
+          ],
+
+  "dispatcher": [
+            "auth",
+            "profile", "!my_timesheet", "!my_routes", "!my_drivers", "!history_routes",
+            "report",
+            "trol"
+          ],
+
+  "director": [
+            "auth",
+            "profile", "!my_timesheet",  "!add_timesheet", "!my_routes", "!history_routes",
+            "report", "!create_report",  "!about_drivers", "!about_date",
+            "trol"
+          ]
+}

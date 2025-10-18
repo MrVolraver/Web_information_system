@@ -1,0 +1,96 @@
+.timesheet_search {
+    padding: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 18px;
+    backdrop-filter: brightness(50%) blur(50px);
+    border: 2px  solid black;
+}
+
+.timesheet_search form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:50px;
+    justify-content: space-between;
+}
+
+.timesheet_search form input {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.timesheet_search form input:focus {
+    transition: all .5s;
+    outline: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.timesheet_search form button {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.ticket {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.ticket_item {
+    width: 65vw;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ticket form {
+    display: inline-block;
+}
+
+.ticket form input {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.ticket form button {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    border-radius: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    font-size: 20px;
+    text-align: center;
+}

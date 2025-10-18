@@ -1,0 +1,151 @@
+body {
+    background-image: url('images/back.png');
+    font-family: Bradley Hand, cursive;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0px -27vh;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-grow: 1;
+}
+
+.timesheet_item {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 15px;
+    margin-left: 10px;
+    transition: all .5s;
+}
+
+.item {
+    display: inline-block;
+    font-family: Bradley Hand, cursive;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 18px;
+    border: solid 1px black;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.timesheet_item input::placeholder {
+    background-color: rgba(0, 0, 0, 0);
+    transition: all .5s;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+.timesheet_item input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.timesheet_item input:focus {
+    transition: all .5s;
+    outline: 0;
+    padding-left: 25px;
+}
+
+.login_pos {
+    position: relative;
+    left: 60vh;
+    top: 50px;
+    height: 350px;
+    width: 400px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.login_text {
+    position: relative;
+    font-family: Bradley Hand, cursive;
+    font-size: 30px;
+    top: 20px;
+    text-align: center;
+}
+
+.err_mes {
+    position: relative;
+    top: 100px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 120px;
+}
+
+.login_pos a {
+    text-decoration: none;
+    position: relative;
+    top: 50px;
+    left: 30px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.login_pos form button {
+    position: relative;
+    top: 50px;
+    left: 150px;
+    border: none;
+    font-size: 25px;
+    font-family: Bradley Hand, cursive;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.login_pos form input::placeholder {
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 20px;
+}
+
+.login_pos form input:focus {
+    outline: 0;
+    transition: all .5s;
+}
+
+.login_pos form input {
+    position: relative;
+    left: 80px;
+    top: 30px;
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    border: none;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 2px solid black;
+}
+
+.registr {
+    font-size: 18px;
+    font-family: Bradley Hand, cursive;
+    transition: all .5s;
+    text-decoration: underline;
+    margin-top: 30px;
+    padding-left: 15px;
+    color: rgba(0, 0, 0, 0.75);
+    width: 310px;
+}
+
+.flash {
+    position: absolute;
+    top: 50px;
+    transition: all 1s;
+    left: 45vw;
+    border-radius: 18px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+}

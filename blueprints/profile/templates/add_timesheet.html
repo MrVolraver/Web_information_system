@@ -1,0 +1,36 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+<form action="" method="post">
+    <div class="add_container">
+        Дата маршрута:
+        <input type="date" placeholder="Дата" name="t_date" class="date">
+        Время выезда:
+        <input type="time" placeholder="Время выезда" name="Entry_date">
+        Время приезда:
+        <input type="time" placeholder="Время приезда" name="Exit_date">
+        <input type="text" placeholder="Водитель" name="D_ID">
+        <input type="text" placeholder="Маршрут" name="R_ID">
+        <input type="text" placeholder="Номер троллейбуса" name="trol_num">
+        <input type="text" placeholder="Количество билетов" name="col_bilet">
+        <button type="submit">Добавить маршрут в расписание!</button>
+    </div>
+</form>
+
+{% endblock %}

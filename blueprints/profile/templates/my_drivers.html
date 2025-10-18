@@ -1,0 +1,31 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+<link type="text/css" rel="stylesheet" href="/static/report_css/report.css">
+{% endblock %}
+
+{% block main %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+<div class="report_container_con">
+    {% for item in items %}
+        <div class="item_report">
+            Водитель: {{item['D_name']}}
+            <br>Дата рождения: {{item['D_birth']}}</br>
+            Дата приема на работу: {{item['D_birth']}}
+        </div>
+    {% endfor %}
+</div>
+
+<br></br>
+
+{% endblock %}

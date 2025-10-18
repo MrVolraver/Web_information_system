@@ -1,0 +1,159 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+{% endblock %}
+
+{% block main %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+<br></br>
+<div class="race">Предстоящие поездки</div>
+<br></br>
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Маршрут" name="R_name">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['R_name']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Номер троллейбуса" name="trollleybus_num">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['trollleybus_num']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Дата маршрута" name="DATE(T_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['DATE(T_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Время выезда" name="TIME(Entry_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['TIME(Entry_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Время приезда" name="TIME(Exit_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['TIME(Exit_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Стоимость билета" name="price">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] > date %}
+    <div class="item">{{item['price']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<br></br>
+<div class="race"> Прошедшие рейсы </div>
+<br></br>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Маршрут" name="R_name">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['R_name']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Номер троллейбуса" name="trollleybus_num">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['trollleybus_num']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Дата маршрута" name="DATE(T_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['DATE(T_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Время выезда" name="TIME(Entry_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['TIME(Entry_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Время приезда" name="TIME(Exit_date)">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['TIME(Exit_date)']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="timesheet_item">
+    <form action="" method="get" class="item">
+        <input type="text" placeholder="Стоимость билета" name="price">
+    </form>
+    {% for item in items %}
+    {% if item['DATE(T_date)'] <= date %}
+    <div class="item">{{item['price']}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<br></br>
+
+{% endblock %}

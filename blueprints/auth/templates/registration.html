@@ -1,0 +1,31 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css">
+<link type="text/css" rel="stylesheet" href="/static/auth_css/registr.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+<form action="" method="post">
+    <div class="registration_container">
+        <input type="text" name="login" placeholder="Логин">
+        <input type="text" name="password" placeholder="Пароль">
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="text" name="surname" placeholder="Ваша Фамилия">
+        <button type="submit"> Зарегистрироваться! </button>
+    </div>
+</form>
+
+{% endblock %}

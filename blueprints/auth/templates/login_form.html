@@ -1,0 +1,39 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config == '401' %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    Неверный логин или пароль
+</div>
+{% endif %}
+
+{% if config == '4011' or config == '401' %}
+<div class="login_pos">
+    <div class="login_text">Вход в личный кабинет</div>
+    <form method="post" action="">
+        <input type="text" placeholder="Введите логин" name='u_login' required><br>
+        <input type="password" placeholder="Введите пароль" name='u_password' required><br>
+        <button type="submit">Войти</button>
+
+        <a href="/login/registration/">
+            <div class="registr">
+                Нет аккаунта? Зарегистрироватся!
+            </div>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% if config == '200' %}
+<div class="login_pos">
+    <div class="login_text">Вы успешно вошли</div>
+    <a href="http://127.0.0.1:5000/">Перейти на главную страницу</a>
+</div>
+{% endif %}
+
+{% endblock %}

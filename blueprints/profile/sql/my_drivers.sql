@@ -1,0 +1,1 @@
+SELECT D_name, D_birth, Data_of_recruitment, Data_of_dismissal FROM drivers;

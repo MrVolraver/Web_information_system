@@ -1,0 +1,54 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/backet_css/backet.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+
+{% if items != {} %}
+<form method="get" action="/basket/buy/">
+    <div class="all_basket">
+        <div class="basket_container">
+            {% for item in items %}
+            <div class="basket_item">
+                <div class="ticket_item">Маршрут: {{ items[item]['R_name'] }}</div>
+                <div class="ticket_item">Дата: {{ items[item]['T_date'] }}</div>
+                <div class="ticket_item">Время выезда: {{ items[item]['Entry_date'] }}</div>
+                <div class="ticket_item"> Цена: {{ items[item]['price'] }} рублей</div>
+                <div>
+                    <input type="number" name="count {{ items[item]['T_ID'] }}" placeholder="Количество билетов"
+                        value="{{ items[item]['count'] }}" class="ticket_item">
+                    <input type="checkbox" name="{{ items[item]['T_ID'] }}" value="ADD">
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        <div class="button_container">
+            <button type="submit">Перейти в оформлению заказа</button>
+            <a href="/basket/clear">Очистить корзину</a>
+        </div>
+    </div>
+</form>
+{% else %}
+<div class="pusto">
+Корзина пуста
+</div>
+{% endif %}
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'default.html' %}
+
+{% block head %}
+    <title>Главная страница</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css">
+    <link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+{% endblock %}
+
+{% block main %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+<div class="profile_container">
+    <a href="/report/create_report/about_drivers/" class="profile_item">
+        Создаь отчет по водителям
+    </a>
+    <a href="/report/create_report/about_date/" class="profile_item">
+        Создать отчет о поездках
+    </a>
+</div>
+
+{% endblock %}

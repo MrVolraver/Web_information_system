@@ -1,0 +1,38 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css">
+<link type="text/css" rel="stylesheet" href="/static/profile_css/profile.css">
+<link type="text/css" rel="stylesheet" href="/static/report_css/report.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+<div class="prof_icon">
+    <img src="/static/images/profile_user.png" class="prof_icon">
+</div>
+
+<div class="user_info">
+    {{user_name['u_name']}} {{user_name['u_surname']}}
+</div>
+
+<form method="post" action="">
+    <div class="report_container">
+        <input type="text" name="years" placeholder="Год">
+        <input type="text" name="months" placeholder="Месяц">
+        <button type="submit"> Создать отчет! </button>
+    </div>
+</form>
+
+{% endblock %}

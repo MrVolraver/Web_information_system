@@ -1,0 +1,124 @@
+{% macro header(user_config) %}
+<header>
+    <div class="banner">
+
+        <div class="logo">
+            <a href="/">
+                <img src="/static/images/logo.png" class="logo_icon">
+            </a>
+        </div>
+
+        <div class="menu_position">
+            <div class="menu_container">
+                <div class="menu_content_item">
+                    <a href="">
+                        <div class="menu_content_item_button">
+                            О предприятии
+                        </div>
+                    </a>
+                    <div class="menu_content_item_content">
+                        <a href="">История</a>
+                        <a href="">Руководство</a>
+                        <a href="">Филиалы</a>
+                        <a href="">Наши партнеры</a>
+                        <a href="">О персональных данных</a>
+                        <a href="">Охрана труда</a>
+                    </div>
+                </div>
+                <div class="menu_content_item">
+                    <a href="">
+                        <div class="menu_content_item_button">
+                            Маршруты и расписания
+                        </div>
+                    </a>
+                    <div class="menu_content_item_content">
+                        <a href="">Изменения маршрутов</a>
+                        <a href="/trol/timesheet/">Расписания</a>
+                        <a href="">Экспрессы</a>
+                        <a href="">Ночные маршруты</a>
+                        <a href="">Специальные рейсы</a>
+                    </div>
+                </div>
+                <div class="menu_content_item">
+                    <a href="">
+                        <div class="menu_content_item_button">
+                            Работа у нас
+                        </div>
+                    </a>
+                    <div class="menu_content_item_content">
+                        <a href="">Вакансии</a>
+                        <a href="">Социальный пакет</a>
+                    </div>
+                </div>
+                <div class="menu_content_item">
+                    <a href="">
+                        <div class="menu_content_item_button">
+                            Услуги
+                        </div>
+                    </a>
+                    <div class="menu_content_item_content">
+                        <a href="">Заказ автобуса</a>
+                        <a href="">Мотошкола</a>
+                        <a href="">Автошкола</a>
+                        <a href="">Во время проезда</a>
+                    </div>
+                </div>
+                <div class="menu_content_item">
+                    <a href="">
+                        <div class="menu_content_item_button">
+                            Пресс-служба
+                        </div>
+                    </a>
+                    <div class="menu_content_item_content">
+                        <a href="">Новости</a>
+                        <a href="">Фотогалерея</a>
+                        <a href="">Для СМИ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search_catalog">
+                <form action="" method="get">
+                    <input type="text" placeholder="Поиск" name="p_id">
+                    <button type="submit">
+                        <img src="/static/images/search_icon.png" class="search_catalog_icon">
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="user_container">
+
+            <div class="favor_icon">
+                <a href="/">
+                    <img src="/static/images/favourites.png" class="user_icon">
+                </a>
+            </div>
+
+            <div class="profile_icon">
+                <div class="profile_content">
+                    <a href="/profile/">
+                        <img src="/static/images/profile.png" class="user_icon">
+                    </a>
+                    <div class="prof_content">
+                        {% if user_config['u_role'] %}
+                        <a href="/profile/">Профиль</a>
+                        <a href="">Логин: {{ user_config['u_login'] }}</a>
+                        <a href="">Роль: {{ user_config['u_role'] }}</a>
+                        <a href="/login/sign_out">Выйти</a>
+                        {% else %}
+                        <a href="/login">Войти</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="basket_icon">
+                <a href="/basket/">
+                    <img src="/static/images/basket.png" class="user_icon">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header>
+{% endmacro %}

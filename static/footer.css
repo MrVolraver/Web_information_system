@@ -1,0 +1,36 @@
+/*Размер иконок в футере*/
+.soc{
+    height: 40px;}
+
+ footer {
+   flex-shrink: 0;
+   padding: 10px 20px;
+   color: rgba(80, 146, 185, 0.75);
+   font-size: 16px;
+   /*backdrop-filter: blur(10px);*/
+   backdrop-filter: brightness(50%) blur(50px);
+   border-radius: 20px;
+ }
+
+.under_banner{
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    align-items: flex-start;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.under_banner a{
+    text-decoration: none;
+    color: rgb(173, 173, 165);
+    font-size: 20px;
+    transition: all .5s;
+}
+
+.under_banner a:hover{
+    transition: all .5s;
+    color: rgb(209, 208, 195);
+}

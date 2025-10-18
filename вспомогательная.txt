@@ -1,0 +1,81 @@
+print(request.blueprint)
+print(request.base_url)
+#print(request.args)
+print(request.endpoint)
+print(request.full_path)
+print(request.host_url)
+
+supermarket
+http://127.0.0.1:5000/supermarket/moloko_syr_maslo/
+supermarket.moloko
+
+    print(request.blueprint) - блюпринт
+    print(request.base_url) - вся ссылка
+    print(request.endpoint) - блюпринт + имя обработчика
+
+
+<div class="prof_content">
+                    {% if messege['u_role'] %}
+                    <a href="/login/prof/">Профиль</a>
+                    <a href="">{{ messege['u_login'] }}</a>
+                    <a href="">{{ messege['u_role'] }}</a>
+                    <a href="/login/sign_out">Выйти</a>
+                    {% else %}
+                    <a href="/login">Войти</a>
+                    {% endif %}
+                </div>
+
+<div class="timesheet_item">
+    <div class="item">Маршрут</div>
+    <div class="item">Номер троллейбуса</div>
+    <div class="item">Количество остановок</div>
+    <div class="item">Дата маршрута</div>
+    <div class="item">Время выезда</div>
+    <div class="item">Время приезда</div>
+</div>
+
+{% for item in items %}
+
+<div class="timesheet_item">
+    <div class="item">{{item['R_name']}}</div>
+    <div class="item">{{item['trollleybus_num']}}</div>
+    <div class="item">{{item['Stops_quanity']}}</div>
+    <div class="item">{{item['DATE(Entry_date)']}}</div>
+    <div class="item">{{item['TIME(Entry_date)']}}</div>
+    <div class="item">{{item['TIME(Exit_date)']}}</div>
+</div>
+
+
+{
+  "user": [
+            "auth",
+            "trol",
+            "profile", "!my_timesheet",
+            "basket"
+          ],
+
+  "driver": [
+              "auth",
+              "report",
+              "basket",
+              "favourites",
+              "footer",
+              "profile", "!my_routes",
+              "report",
+              "trol", "timesheet"
+          ],
+
+  "dispatcher": [
+            "profile", "!my_timesheet",
+            "auth",
+            "trol",
+            "report"
+          ],
+
+  "director": [
+            "auth",
+            "trolleybus",
+            "profile", "!my_timesheet", "!my_routes",
+            "read_report"
+          ]
+}

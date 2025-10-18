@@ -1,0 +1,48 @@
+{% extends 'default.html' %}
+
+{% block head %}
+<title>Главная страница</title>
+<link type="text/css" rel="stylesheet" href="/static/backet_css/backet.css">
+{% endblock %}
+
+{% block main %}
+
+{% if config['true'] == 0 %}
+<div class="flash" style="color: rgba(32, 158, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% elif config['true'] == 1 %}
+<div class="flash" style="color: rgba(198, 0, 0, 0.85);">
+    {{ config['messege'] }}
+</div>
+{% endif %}
+
+{% if 'total_sum' in items[0] %}
+
+<div class="all_basket">
+    <form method="post" action="/basket/buy/">
+        <div class="basket_container">
+            {% for item in items %}
+            <div class="basket_item">
+                <div class="ticket_item">Маршрут: {{ item['R_name'] }}</div>
+                <div class="ticket_item">Дата: {{ item['DATE(T_date)'] }}</div>
+                <div class="ticket_item">Время выезда: {{ item['TIME(Entry_date)'] }}</div>
+                <div class="ticket_item"> Цена: {{ item['price'] }} рублей</div>
+                <div class="ticket_item"> Количество: {{ item['count'] }}</div>
+                <input type="hidden" name="T_ID" value="{{ item['ticket_id'] }}">
+                <input type="hidden" name="count" value="{{ item['count'] }}">
+            </div>
+            {% endfor %}
+        </div>
+        {% if items != {} %}
+        <div class="total_container">
+            <button type="submit" class="total_sum">Подтвердить заказ</button>
+            <div class="total_sum"> Сумма заказа: {{ items[0]['total_sum'] }} р. </div>
+        </div>
+        {% endif %}
+        <input type="hidden" name="total_sum" value="{{ items[0]['total_sum'] }}">
+    </form>
+</div>
+
+{% endif %}
+{% endblock %}
